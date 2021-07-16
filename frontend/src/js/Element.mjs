@@ -21,9 +21,7 @@ export default class Element {
 
     /**
      * @description Creates and adds element to App and DOM
-     * @param {String} tag
-     * @param {String} text
-     * @param {Object} attributes
+     * @param {Object} args
      */
     constructor(args = {}) {
         const {
@@ -65,7 +63,8 @@ export default class Element {
             this.$el.setAttribute(i, this.attributes[i])
         }
 
-        this.$el.innerHTML = this.innerHTML
+        this.appendMany(this.children)
+        this.addInnerHTML('beforeend', this.innerHTML)
     }
 
     /**
@@ -80,12 +79,26 @@ export default class Element {
      * @description Function used to add innerHTML to $el
      * @param {String} innerHTML
      */
-    addInnerHTML(innerHTML) {
-        this.$el.insertAdjacentHTML('beforeend', innerHTML)
+    addInnerHTML(location, innerHTML) {
+        this.$el.insertAdjacentHTML(location, innerHTML)
     }
 
     /**
-     * @description Adds element to children and element.$el to dom.
+     * @description Adds element to beginning children and element.$el to dom.
+     * Also adds props
+     * @param {Element} element
+     * @param {Array} props
+     */
+    prepend(element, props = {}) {
+        element._receiveProps(props)
+        element._setParent(this.e_id)
+        this.children.unshift(element)
+
+        this.$el.prepend(element.$el)
+    }
+
+    /**
+     * @description Adds element to end of children and element.$el to dom.
      * Also adds props
      * @param {Element} element
      * @param {Array} props
@@ -99,12 +112,22 @@ export default class Element {
     }
 
     /**
-     * @description Adds array of elements to this
+     * @description Adds array of elements to end of this
      * @param {Array} elements
      */
     appendMany(elements) {
         for (const element of elements) {
             this.append(element)
+        }
+    }
+
+    /**
+     * @description Adds array of elements to beginning of this
+     * @param {Array} elements
+     */
+    prependMany(elements) {
+        for (const element of elements) {
+            this.prepend(element)
         }
     }
 

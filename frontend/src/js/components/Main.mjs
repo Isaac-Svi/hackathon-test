@@ -28,29 +28,29 @@ MainWrap.addInnerHTML(`
     <hr />
     <a href="/test" data-link>Lorem</a><br />
     <hr />
-    <a href="/sdfg" data-link>Lorem</a><br />
+    <a href="/app" data-link>Lorem</a><br />
     <hr />
     <a href="/dfgh" data-link>Editor</a>
 </div>
 <div class="container">
     <div class="h"><h3>Your work</h3></div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
     <div class="f">
-        <img src="/static/images/test.webp" alt="" />
+        <img src="/images/test.webp" alt="" />
     </div>
 </div>
 `)
